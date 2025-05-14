@@ -1,0 +1,65 @@
+ip: 127.0.0.1
+port: 6009
+seed: 0
+detect_anomaly: false
+test_iterations: [10000, 20000]
+checkpoint_iterations: [10000, 20000]
+quiet: false
+model:
+  source_path: ''
+  model_path: ''
+  background: [0, 0.3, 0]
+  data_device: 'cpu'
+  smpl_pkl_path: ./smpl_model/smpl/SMPL_NEUTRAL.pkl
+  knn_K: 3
+  is_specular: true
+  is_visibility: true
+  is_dxyz: true
+
+  train_cam_ids: [2, 7, 14, 18]
+  num_train_frame: 300
+  begin_ith_frame: 0
+  frame_interval: 1
+  image_scaling: 1
+
+optimization:
+  iterations: 30_000
+  position_lr_init: 0.00016
+  position_lr_final: 0.0000016
+  position_lr_delay_mult: 0.01
+  position_lr_max_steps: 30_000
+  opacity_lr: 0.05
+  scaling_lr: 0.005
+  rotation_lr: 0.001
+
+  albedo_lr: 0.0025 
+  roughness_lr: 0.005
+  specularTint_lr: 0.01
+  envmap_lr: 0.05
+  all_poses_lr_init: 0.002
+  all_poses_lr_final: 0.0004
+  mlp_dxyz_lr_init: 0.0002
+  mlp_dxyz_lr_final: 0.0002
+  warm_up_iters: 1
+
+  percent_dense: 0.01
+  lambda_dssim: 0.2
+  lambda_mlp_dxyz: 0.02
+  lambda_scaling: 10
+  lambda_mesh_dist: 0.1
+  lambda_roughness_smooth: 0.002
+  lambda_albedo_smooth: 0.002
+  lambda_specularTint_smooth: 0.002
+
+  densification_interval: 100
+  densify_from_iter: 500
+  densify_until_iter: 15000
+  densify_grad_threshold: 0.0003
+
+  densify_density_from_iter: 10000
+  densify_density_until_iter: 25000
+
+  random_background: false
+pipeline:
+  compute_cov3D_python: false
+  debug: False

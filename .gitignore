@@ -1,0 +1,15 @@
+*.pyc
+.vscode
+output
+build
+diff_rasterization/diff_rast.egg-info
+diff_rasterization/dist
+tensorboard_3d
+screenshots
+__pycache__
+*.so
+build
+/submodules/diff-gaussian-rasterization/third_party
+/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization.egg-info
+/submodules/simple-knn/simple_knn.egg-info
+smpl_model
